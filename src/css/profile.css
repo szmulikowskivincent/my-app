@@ -1,0 +1,40 @@
+.page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  block-size: 30vh;
+  background-color: #f0f8ff;
+}
+
+.content-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  max-inline-size: 600px;
+  inline-size: 100%;
+  text-align: center;
+}
+
+.profile-photo {
+  inline-size: 130px;
+  block-size: 130px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-block-end: 20px;
+}
+
+h2 {
+  margin-block-start: 0;
+  color: #333;
+}
+
+p {
+  color: #666;
+  line-height: 1.5;
+}
