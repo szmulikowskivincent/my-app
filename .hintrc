@@ -7,7 +7,9 @@
       "default",
       {
         "ignore": [
-          "inset-block-start"
+          "inset-block-start",
+          "inset-block-end",
+          "inset-inline-start"
         ]
       }
     ]
