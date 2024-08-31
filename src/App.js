@@ -1,10 +1,14 @@
 import React, { useState } from "react";
-import Header from "../src/components/header";
-import PostList from "../src/components/postlist";
-import CreatePost from "../src/components/createpost";
-import Profile from "../src/components/profile";
-import Login from "../src/components/login";
-import Post from "../src/components/post";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Header from "./components/header";
+import PostList from "./components/postlist";
+import CreatePost from "./components/createpost";
+import Profile from "./components/profile";
+import Login from "./components/login";
+import Post from "./components/post";
+import UserProfile from "./components/userProfile";
+
+import "./css/userProfile.css";
 
 function App() {
   const [posts, setPosts] = useState([]);
@@ -20,25 +24,59 @@ function App() {
 
   const samplePost = {
     title: "Ma devise",
-    content:
-      "Vivre sa vie chaque jour comme si c'était la dérniére!",
+    content: "Vivre sa vie chaque jour comme si c'était la dernière!",
     author: "Szmulikowski Vincent",
+    likes: 10,
   };
 
+  const userData = {
+    name: "Vincent",
+    bio: "Développeur web passionné.",
+    avatarUrl: "src/assets/avatar1.png",
+  };
+
+  const postsData = [
+    {
+      title: "Premier post!",
+      content: "Ceci est le premier post.",
+      author: "Auteur 1",
+      likes: 10,
+    },
+    {
+      title: "Un autre post!",
+      content: "Ceci est un autre post.",
+      author: "Auteur 2",
+      likes: 5,
+    },
+  ];
+
   return (
-    <div className="App">
-      <Header />
-      {!user ? (
-        <Login onLogin={handleLogin} />
-      ) : (
-        <>
-          <Profile user={user} />
-          <CreatePost onCreate={handleCreatePost} />
-          <Post post={samplePost} />
-          <PostList posts={posts} />
-        </>
-      )}
-    </div>
+    <Router>
+      <div className="App">
+        <Header />
+        <Routes>
+          <Route
+            path="/"
+            element={
+              user ? (
+                <>
+                  <Profile user={user} />
+                  <CreatePost onCreate={handleCreatePost} />
+                  <Post post={samplePost} />
+                  <PostList posts={posts} />
+                </>
+              ) : (
+                <Login onLogin={handleLogin} />
+              )
+            }
+          />
+          <Route
+            path="/userProfile"
+            element={<UserProfile user={userData} posts={postsData} />}
+          />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
