@@ -1,10 +1,22 @@
+.user-profile-page {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-block-size: 100vh;
+  background-color: #f0f8ff;
+  padding: 0 20px;
+  position: relative;
+}
+
 .user-profile-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: #f0f8ff;
-  padding: 100px;
-  min-block-size: 100vh;
+  padding: 40px;
+  inline-size: 100%;
+  max-inline-size: 800px;
+  margin-block-end: 60px;
 }
 
 .user-info {
@@ -34,9 +46,56 @@
   line-height: 1.5;
 }
 
+.friends-container {
+  position: fixed;
+  inset-block-end: 20px; 
+  inset-inline-start: 0; 
+  inline-size: 200px;
+  padding: 20px;
+  margin-inline-start: 10px; 
+  background-color: #f0f0f0;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.friends-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.friend-item {
+  display: flex;
+  align-items: center;
+  margin-block-end: 15px;
+}
+
+.friend-avatar {
+  inline-size: 40px;
+  block-size: 40px;
+  border-radius: 50%;
+  margin-inline-end: 10px;
+}
+
+.friend-status {
+  inline-size: 10px;
+  block-size: 10px;
+  border-radius: 50%;
+  margin-inline-end: 10px;
+}
+
+.status-online {
+  background-color: green;
+}
+
+.status-offline {
+  background-color: red;
+}
+
+.friend-name {
+  font-weight: bold;
+}
+
 .posts-container {
-  inline-size: 100%;
-  max-inline-size: 600px;
   background-color: white;
   padding: 20px;
   border-radius: 8px;
@@ -67,6 +126,32 @@
 }
 
 .like-button:hover {
+  background-color: #0056b3;
+}
+
+.post-comments {
+  margin-block-start: 0.5mm;
+}
+
+.comment-input {
+  inline-size: 150px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+.comment-submit {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  margin-block-start: 5px;
+  transition: background-color 0.3s;
+}
+
+.comment-submit:hover {
   background-color: #0056b3;
 }
 
@@ -116,7 +201,7 @@
   background-color: #ffffff;
   border-radius: 8px;
   padding: 8px 12px;
-  max-width: 75%;
+  max-inline-size: 75%;
   align-self: flex-start;
 }
 
