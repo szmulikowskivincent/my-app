@@ -41,10 +41,10 @@ const WeatherSimulator = () => {
 
   return (
     <div align="center" className="weather-simulator">
-      <p>🌡️ Température : {weatherData.temperature}°C</p>
-      <p>🚩 Conditions : {weatherData.condition}</p>
-      <p>💧 Humidité : {weatherData.humidity}%</p>
-      <p>💨 Vent : {weatherData.windSpeed} km/h</p>
+      <p>🌡️ Température : {weatherData.temperature}°C 🌨️</p>
+      <p>🚩 Conditions : {weatherData.condition} 🔆</p>
+      <p>💧 Humidité : {weatherData.humidity}% ☂</p>
+      <p>💨 Vent : {weatherData.windSpeed} km/h ☔</p>
     </div>
   );
 };
