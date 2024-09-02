@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../css/login.css";
-import reactLogo from "../assets/logo-React.gif";
+import reactLogo from "../assets/logo-React.png";
 
 const Login = ({ onLogin }) => {
   const [username, setUsername] = useState("");

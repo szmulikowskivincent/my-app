@@ -83,27 +83,6 @@ const UserProfile = ({ user }) => {
           allowFullScreen
         ></iframe>
       </div>
-      🔆🌥️🌩️
-      <div
-        id="ww_30265da4ae185"
-        v="1.3"
-        loc="id"
-        a='{"t":"horizontal","lang":"fr","sl_lpl":1,"ids":[],"font":"Arial","sl_ics":"one_a","sl_sot":"celsius","cl_bkg":"image","cl_font":"#FFFFFF","cl_cloud":"#FFFFFF","cl_persp":"#81D4FA","cl_sun":"#FFC107","cl_moon":"#FFC107","cl_thund":"#FF5722"}'
-      >
-        Plus de prévisions:{" "}
-        <a
-          href="https://oneweather.org/fr/paris/30_jours/"
-          id="ww_30265da4ae185_u"
-          target="_blank"
-        >
-          Meteo a 30 jours
-        </a>
-      </div>
-      <script
-        async
-        src="https://app2.weatherwidget.org/js/?id=ww_30265da4ae185"
-      ></script>
-      🌐
       <div className="search-bar-container">
         <input
           type="text"
