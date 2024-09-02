@@ -7,6 +7,7 @@ import Profile from "./components/profile";
 import Login from "./components/login";
 import Post from "./components/post";
 import UserProfile from "./components/userProfile";
+import WeatherSimulator from "./components/WeatherSimulator.js";
 
 import "./css/userProfile.css";
 
@@ -54,6 +55,7 @@ function App() {
     <Router>
       <div className="App">
         <Header />
+        <WeatherSimulator />
         <Routes>
           <Route
             path="/"

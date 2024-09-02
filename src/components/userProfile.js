@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "../css/userProfile.css";
 import myPhoto from "../assets/avatar1.png";
 
+
 const defaultAvatar1 = "https://via.placeholder.com/40?text=A";
 const defaultAvatar2 = "https://via.placeholder.com/40?text=B";
 const defaultAvatar3 = "https://via.placeholder.com/40?text=C";
