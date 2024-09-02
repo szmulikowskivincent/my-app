@@ -1,30 +1,31 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../css/userProfile.css";
 import myPhoto from "../assets/avatar1.png";
 
 const defaultAvatar1 = "https://via.placeholder.com/40?text=A";
 const defaultAvatar2 = "https://via.placeholder.com/40?text=B";
 const defaultAvatar3 = "https://via.placeholder.com/40?text=C";
+const defaultAvatar4 = "https://via.placeholder.com/40?text=D";
+const defaultAvatar5 = "https://via.placeholder.com/40?text=E";
+const defaultAvatar6 = "https://via.placeholder.com/40?text=F";
+const defaultAvatar7 = "https://via.placeholder.com/40?text=G";
+const defaultAvatar8 = "https://via.placeholder.com/40?text=H";
+const defaultAvatar9 = "https://via.placeholder.com/40?text=I";
+const defaultAvatar10 = "https://via.placeholder.com/40?text=J";
+const defaultAvatar11 = "https://via.placeholder.com/40?text=K";
+const defaultAvatar12 = "https://via.placeholder.com/40?text=L";
 
 const UserProfile = ({ user }) => {
   const [posts, setPosts] = useState([
-    {
-      content: "Here is a cool video I found!",
-      likes: 34,
-    },
+    { content: "Here is a cool video I found!", likes: 34 },
     {
       content:
-        "Le développement web est devenu un pilier essentiel dans notre monde actuel, " +
-        "car il permet de créer des solutions numériques qui facilitent notre quotidien, " +
-        "que ce soit à travers des sites web, des applications mobiles, ou des plateformes en ligne. " +
-        "Cependant, malgré l'importance croissante de ce domaine, il y a une pénurie de main-d'œuvre qualifiée. " +
-        "Les entreprises du monde entier peinent à trouver des développeurs expérimentés, ce qui ralentit l'innovation " +
-        "et met une pression énorme sur les équipes existantes. Investir dans l'éducation et la formation est donc crucial " +
-        "pour combler ce manque et soutenir la croissance du secteur.",
+        "Le développement web est devenu un pilier essentiel dans notre monde actuel...",
       likes: 78,
     },
   ]);
 
+  const [searchQuery, setSearchQuery] = useState("");
   const [messages, setMessages] = useState([
     { text: "Hello!", sender: "😁 Moi" },
     { text: "Hi there!", sender: "👉 Contact" },
@@ -54,6 +55,15 @@ const UserProfile = ({ user }) => {
     { name: "Alice", avatar: defaultAvatar1, status: "online" },
     { name: "Bob", avatar: defaultAvatar2, status: "offline" },
     { name: "Charlie", avatar: defaultAvatar3, status: "online" },
+    { name: "David", avatar: defaultAvatar4, status: "offline" },
+    { name: "Eve", avatar: defaultAvatar5, status: "online" },
+    { name: "Frank", avatar: defaultAvatar6, status: "offline" },
+    { name: "Grace", avatar: defaultAvatar7, status: "online" },
+    { name: "Hank", avatar: defaultAvatar8, status: "offline" },
+    { name: "Ivy", avatar: defaultAvatar9, status: "online" },
+    { name: "Jack", avatar: defaultAvatar10, status: "offline" },
+    { name: "Karen", avatar: defaultAvatar11, status: "online" },
+    { name: "Leo", avatar: defaultAvatar12, status: "offline" },
   ]);
 
   const getStatusClass = (status) => {
@@ -62,33 +72,78 @@ const UserProfile = ({ user }) => {
 
   return (
     <div className="user-profile-page">
+      <div className="info-of-the-day">
+        <h2>Info du jour</h2>
+        <iframe
+          src="https://www.francetvinfo.fr/en-direct/tv.html"
+          title="Live"
+          width="100%"
+          height="500"
+          frameBorder="0"
+          allowFullScreen
+        ></iframe>
+      </div>
+      🔆🌥️🌩️
+      <div
+        id="ww_30265da4ae185"
+        v="1.3"
+        loc="id"
+        a='{"t":"horizontal","lang":"fr","sl_lpl":1,"ids":[],"font":"Arial","sl_ics":"one_a","sl_sot":"celsius","cl_bkg":"image","cl_font":"#FFFFFF","cl_cloud":"#FFFFFF","cl_persp":"#81D4FA","cl_sun":"#FFC107","cl_moon":"#FFC107","cl_thund":"#FF5722"}'
+      >
+        Plus de prévisions:{" "}
+        <a
+          href="https://oneweather.org/fr/paris/30_jours/"
+          id="ww_30265da4ae185_u"
+          target="_blank"
+        >
+          Meteo a 30 jours
+        </a>
+      </div>
+      <script
+        async
+        src="https://app2.weatherwidget.org/js/?id=ww_30265da4ae185"
+      ></script>
+      🌐
+      <div className="search-bar-container">
+        <input
+          type="text"
+          className="search-bar"
+          placeholder="Rechercher..."
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+        />
+      </div>
       <div className="friends-container">
         <h3>Amis</h3>
         <ul className="friends-list">
-          {friends.map((friend, index) => (
-            <li key={index} className="friend-item">
-              <img
-                src={friend.avatar}
-                alt={`${friend.name}'s avatar`}
-                className="friend-avatar"
-              />
-              <span
-                className={`friend-status ${getStatusClass(friend.status)}`}
-              ></span>
-              <p className="friend-name">{friend.name}</p>
-            </li>
-          ))}
+          {friends
+            .filter((friend) =>
+              friend.name.toLowerCase().includes(searchQuery.toLowerCase())
+            )
+            .map((friend, index) => (
+              <li key={index} className="friend-item">
+                <img
+                  src={friend.avatar}
+                  alt={`${friend.name}'s avatar`}
+                  className="friend-avatar"
+                />
+                <span
+                  className={`friend-status ${getStatusClass(friend.status)}`}
+                ></span>
+                <p className="friend-name">{friend.name}</p>
+              </li>
+            ))}
         </ul>
       </div>
-
       <div className="user-profile-container">
         <div className="user-info">
           <img
             src={myPhoto}
             alt="My Profile"
             className="profile-photo"
-            style={{ width: "150px" }}
+            style={{ width: "130px" }}
           />
+          <p>🟢 en ligne</p>
           <h2>{user.name}</h2>
           <p>{user.bio}</p>
         </div>
